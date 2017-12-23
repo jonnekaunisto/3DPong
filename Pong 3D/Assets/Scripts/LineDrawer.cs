@@ -1,4 +1,5 @@
 ﻿//Jonne Kaunisto, December 2017
+//draws lines
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
