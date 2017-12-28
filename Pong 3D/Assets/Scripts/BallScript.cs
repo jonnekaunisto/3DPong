@@ -14,7 +14,7 @@ public class BallScript : MonoBehaviour {
 		rigidBody = GetComponent<Rigidbody> ();
 
 		//rigidBody.AddForce(new Vector3(0f,0f,0.1f));
-		rigidBody.velocity = new Vector3 (02f, 02f, -8f);
+		//rigidBody.velocity = new Vector3 (02f, 02f, -8f);
 		//rigidBody.AddTorque(new Vector3 (100f, 0, 0), ForceMode.Force);
 
 	}

@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pong 3D", "Assembly-CSharp-Editor.csproj", "{F15C486B-A9A8-E7D0-8EBA-A3AA6E1BD6F3}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pong 3D", "Assembly-CSharp.csproj", "{E138249A-412E-FF12-1655-944271AAEA1E}"
 EndProject
 Global
@@ -9,6 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F15C486B-A9A8-E7D0-8EBA-A3AA6E1BD6F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F15C486B-A9A8-E7D0-8EBA-A3AA6E1BD6F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F15C486B-A9A8-E7D0-8EBA-A3AA6E1BD6F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F15C486B-A9A8-E7D0-8EBA-A3AA6E1BD6F3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E138249A-412E-FF12-1655-944271AAEA1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E138249A-412E-FF12-1655-944271AAEA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E138249A-412E-FF12-1655-944271AAEA1E}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class DepthPlaneScript : MonoBehaviour {
 
+	public GameObject lines;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,10 @@ public class DepthPlaneScript : MonoBehaviour {
 		transform.position = new Vector3 (0, 0, transform.position.z);
 		transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, 0);
 		if (Mathf.Abs (transform.position.z) > 5.5) {
-			Destroy (gameObject);
+			lines.SetActive (false);
+		} else {
+			lines.SetActive (true);
 		}
+
 	}
 }
