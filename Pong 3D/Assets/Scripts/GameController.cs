@@ -3,18 +3,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-	public int transitionTime = 4;
+	public float transitionTime = 4;
 
 	public GameObject ball;
+	public BallScript ballScript;
+
+	public PlayerScript playerOne;
+	public PlayerScript playerTwo;
 
 	public GameObject ballPlayerOneStart;
 	public GameObject ballPlayerTwoStart;
 
 	public GameObject goalPlayerOne;
 	public GameObject goalPlayerTwo;
+
+	public Text playerOneScoreText;
+	public Text playerTwoScoreText;
+
+	public AudioClip winSound;
+	public AudioClip loseSound;
 
 	public static GameController _instance;
 	public static GameController Instance{
@@ -26,14 +37,26 @@ public class GameController : MonoBehaviour {
 	int playerOneScore = 0;
 	int playerTwoScore = 0;
 
+	AudioSource source;
+
 	void Awake(){
 		_instance = this;
+
+		if (ball == null) {
+			ball = GameObject.FindGameObjectWithTag ("Ball");
+		}
+		ballScript = ball.GetComponent<BallScript> ();
+
+		source = GetComponent<AudioSource> ();
 	}
 
 	// Use this for initialization
 	void Start () {
 		ball.transform.position = ballPlayerOneStart.transform.position;
 		gameState = 1;
+		playerOne.NewRound ();
+		playerTwo.NewRound ();
+
 		ball.GetComponent<Rigidbody>().velocity = new Vector3 (02f, 02f, -8f);
 
 
@@ -49,29 +72,39 @@ public class GameController : MonoBehaviour {
 		if (side == 1) {
 			playerTwoScore++;
 			StartCoroutine (SetUpForPlayerTwo ());
+			source.clip = winSound;
+			source.Play();
+			playerTwoScoreText.text = "Player Two: " + playerTwoScore;
+
 		} else {
 			playerOneScore++;
 			StartCoroutine (SetUpForPlayerOne ());
+			source.clip = loseSound;
+			source.Play ();
+			playerOneScoreText.text = "Player One: " + playerOneScore;
 		}
 
-
-
+		playerOne.NewRound ();
+		playerTwo.NewRound ();
 	}
 
 	IEnumerator SetUpForPlayerOne(){
 		yield return new WaitForSeconds (transitionTime);
 		ball.transform.position = ballPlayerOneStart.transform.position;
 		gameState = 1;
-		ball.GetComponent<Rigidbody>().velocity = new Vector3 (02f, 02f, -8f);
 		SetUpGoals ();
+		ballScript.Reset();
+		ball.GetComponent<Rigidbody>().velocity = new Vector3 (02f, 02f, -8f);
 	}
 
 	IEnumerator SetUpForPlayerTwo(){
 		yield return new WaitForSeconds (transitionTime);
 		ball.transform.position = ballPlayerTwoStart.transform.position;
 		gameState = 2;
-		ball.GetComponent<Rigidbody>().velocity = new Vector3 (02f, 02f, 8f);
 		SetUpGoals ();
+		ballScript.Reset();
+		ball.GetComponent<Rigidbody>().velocity = new Vector3 (02f, 02f, 8f);
+
 	}
 
 	void SetUpGoals(){

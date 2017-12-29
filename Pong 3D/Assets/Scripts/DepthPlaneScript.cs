@@ -8,6 +8,14 @@ public class DepthPlaneScript : MonoBehaviour {
 
 	public GameObject lines;
 
+
+	public GameObject ball;
+
+	void Awake(){
+		if (ball == null) {
+			ball = GameObject.FindGameObjectWithTag ("Ball");
+		}
+	}
 	// Use this for initialization
 	void Start () {
 		
@@ -18,13 +26,14 @@ public class DepthPlaneScript : MonoBehaviour {
 		
 	}
 	void LateUpdate(){
-		transform.position = new Vector3 (0, 0, transform.position.z);
-		transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, 0);
+		transform.position = new Vector3 (0, 0, ball.transform.position.z);
+		//transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, 0);
 		if (Mathf.Abs (transform.position.z) > 5.5) {
 			lines.SetActive (false);
 		} else {
 			lines.SetActive (true);
 		}
+		//transform.rotation = initialRotation;
 
 	}
 }
