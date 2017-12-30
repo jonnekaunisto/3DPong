@@ -23,7 +23,9 @@ public class DepthPlaneScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (ball == null) {
+			ball = GameObject.FindGameObjectWithTag ("Ball");
+		}
 	}
 	void LateUpdate(){
 		transform.position = new Vector3 (0, 0, ball.transform.position.z);

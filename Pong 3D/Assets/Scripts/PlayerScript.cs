@@ -10,10 +10,10 @@ public class PlayerScript : MonoBehaviour {
 
 	public Vector3 velocity;
 
-	Vector3 lastLocation;
+	protected Vector3 lastLocation;
 
-	Rigidbody rig;
-	AudioSource audio;
+	protected Rigidbody rig;
+	public AudioSource audio;
 
 	float originalPitch;
 	// Use this for initialization
@@ -24,21 +24,7 @@ public class PlayerScript : MonoBehaviour {
 		originalPitch = audio.pitch;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-		RaycastHit hit;
-		float length = 30f;
-		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-		if (Physics.Raycast (ray, out hit, length, hitlayer)) {
-			//Debug.Log (transform.position.x);
-			//Debug.Log (transform.position.y);
-			//Debug.Log (transform.position.z);
-			transform.position = hit.point;
-			transform.position = new Vector3 (hit.point.x, hit.point.y, hit.point.z * opponent);
 
-		}
-	}
 
 	void LateUpdate(){
 		float dx = transform.position.x - lastLocation.x;
@@ -54,6 +40,7 @@ public class PlayerScript : MonoBehaviour {
 	void OnCollisionEnter(Collision coll){
 		if (coll.gameObject.CompareTag ("Ball")) {
 			coll.gameObject.GetComponent<BallScript> ().spin = velocity;
+			//Debug.LogError (audio == null);
 			audio.pitch = audio.pitch + 0.1f;
 			audio.Play ();
 		}
