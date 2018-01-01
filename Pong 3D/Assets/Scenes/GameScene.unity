@@ -357,8 +357,8 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   audio: {fileID: 247854231}
   ball: {fileID: 0}
-  lerpSpeed: 3
-  reactionDistance: 6
+  lerpSpeed: 200
+  reactionDistance: 1
 --- !u!1 &265266138
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,8 +805,8 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   audio: {fileID: 625700842}
   ball: {fileID: 0}
-  lerpSpeed: 4
-  reactionDistance: 5
+  lerpSpeed: 7
+  reactionDistance: 10
 --- !u!1 &735360264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,6 +1229,8 @@ MonoBehaviour:
   playerTwoScoreText: {fileID: 265266140}
   winSound: {fileID: 8300000, guid: def04879dbb71584980ffbe28af49b9b, type: 3}
   loseSound: {fileID: 8300000, guid: 84b5d06bf090bfb44897b31034d6a7cb, type: 3}
+  minStartVelocity: {x: 0, y: 0, z: 7}
+  maxStartVelocity: {x: 4, y: 4, z: 9}
 --- !u!4 &1216685187
 Transform:
   m_ObjectHideFlags: 0
@@ -1322,6 +1324,53 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1001 &1310919448
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4206229966987290, guid: ea3fc5e276a6e5d4ba363e4a44614dca, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -112.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206229966987290, guid: ea3fc5e276a6e5d4ba363e4a44614dca, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206229966987290, guid: ea3fc5e276a6e5d4ba363e4a44614dca, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -23.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206229966987290, guid: ea3fc5e276a6e5d4ba363e4a44614dca, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206229966987290, guid: ea3fc5e276a6e5d4ba363e4a44614dca, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206229966987290, guid: ea3fc5e276a6e5d4ba363e4a44614dca, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206229966987290, guid: ea3fc5e276a6e5d4ba363e4a44614dca, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206229966987290, guid: ea3fc5e276a6e5d4ba363e4a44614dca, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114377042473534998, guid: ea3fc5e276a6e5d4ba363e4a44614dca,
+        type: 2}
+      propertyPath: speedMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ea3fc5e276a6e5d4ba363e4a44614dca, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1329831154
 Prefab:
   m_ObjectHideFlags: 0

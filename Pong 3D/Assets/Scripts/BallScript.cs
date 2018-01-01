@@ -3,8 +3,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class BallScript : MonoBehaviour {
+public class BallScript : NetworkBehaviour {
 
 	Rigidbody rigidBody;
 
@@ -28,6 +29,11 @@ public class BallScript : MonoBehaviour {
 		//rigidBody.velocity = new Vector3 (02f, 02f, -8f);
 		//rigidBody.AddTorque(new Vector3 (100f, 0, 0), ForceMode.Force);
 
+	}
+
+	[Command]
+	public void CmdSpin(Vector3 spin){
+		this.spin = spin;
 	}
 	
 
@@ -54,6 +60,17 @@ public class BallScript : MonoBehaviour {
 	public void Reset(){
 		rigidBody.velocity = Vector3.zero;
 		spin = Vector3.zero;
+
+	}
+
+	void OnCollisionEnter(Collision coll){
+		if (coll.gameObject.CompareTag ("Player")) {
+			spin = coll.gameObject.GetComponent<PlayerScript> ().velocity;
+			//coll.gameObject.GetComponent<BallScript> ().CmdSpin (velocity);
+			//Debug.LogError (audio == null);
+			//audio.pitch = audio.pitch + 0.03f;
+			//audio.Play ();
+		}
 
 	}
 }

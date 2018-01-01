@@ -39,9 +39,10 @@ public class PlayerScript : MonoBehaviour {
 
 	void OnCollisionEnter(Collision coll){
 		if (coll.gameObject.CompareTag ("Ball")) {
-			coll.gameObject.GetComponent<BallScript> ().spin = velocity;
+			//coll.gameObject.GetComponent<BallScript> ().spin = velocity;
+			//coll.gameObject.GetComponent<BallScript> ().CmdSpin (velocity);
 			//Debug.LogError (audio == null);
-			audio.pitch = audio.pitch + 0.1f;
+			audio.pitch = audio.pitch + 0.03f;
 			audio.Play ();
 		}
 

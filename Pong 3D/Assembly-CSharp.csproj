@@ -59,9 +59,7 @@
      <Compile Include="Assets\Scripts\PlayerHumanScript.cs" />
      <Compile Include="Assets\Scripts\PlayerMultiplayerScript.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>D:/Program Files (x86)/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
+     <Compile Include="Assets\Scripts\UIController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files (x86)/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

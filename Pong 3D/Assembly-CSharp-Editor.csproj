@@ -53,9 +53,6 @@
   <ItemGroup>
      <Compile Include="Assets\Editor\DrawOutline.cs" />
      <Compile Include="Assets\Editor\LineDrawer.cs" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>D:/Program Files (x86)/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>D:/Program Files (x86)/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>

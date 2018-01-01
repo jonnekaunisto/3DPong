@@ -37,6 +37,9 @@ public class GameController : NetworkBehaviour {
 	public AudioClip winSound;
 	public AudioClip loseSound;
 
+	public Vector3 minStartVelocity;
+	public Vector3 maxStartVelocity;
+
 	public static GameController _instance;
 	public static GameController Instance{
 		get{return _instance;}
@@ -117,7 +120,14 @@ public class GameController : NetworkBehaviour {
 		gameState = 1;
 		playerOneScript.NewRound ();
 		playerTwoScript.NewRound ();
-		ball.GetComponent<Rigidbody>().velocity = new Vector3 (02f, 02f, -8f);
+		SetBallSpeed (-1);
+	}
+
+	void SetBallSpeed(int zVelocitySign){
+		float xRandom = Random.Range (minStartVelocity.x, maxStartVelocity.x) * ((Random.Range (1, 2) == 1) ? -1 : 1);
+		float yRandom = Random.Range (minStartVelocity.y, maxStartVelocity.y) * ((Random.Range (1, 2) == 1) ? -1 : 1);
+		float zRandom = Random.Range (minStartVelocity.z, maxStartVelocity.z) * zVelocitySign;
+		ball.GetComponent<Rigidbody>().velocity = new Vector3 (xRandom, yRandom, zRandom);
 	}
 
 	//takes the side which the point was scored on
@@ -147,7 +157,7 @@ public class GameController : NetworkBehaviour {
 		ball.transform.position = ballPlayerOneStart.transform.position;
 		SetUpGoals ();
 		ballScript.Reset();
-		ball.GetComponent<Rigidbody>().velocity = new Vector3 (02f, 02f, -8f);
+		SetBallSpeed (-1);
 		playerOneScript.NewRound ();
 		playerTwoScript.NewRound ();
 	}
@@ -158,7 +168,7 @@ public class GameController : NetworkBehaviour {
 		ball.transform.position = ballPlayerTwoStart.transform.position;
 		SetUpGoals ();
 		ballScript.Reset();
-		ball.GetComponent<Rigidbody>().velocity = new Vector3 (02f, 02f, 8f);
+		SetBallSpeed (1);
 		playerOneScript.NewRound ();
 		playerTwoScript.NewRound ();
 
